@@ -1,0 +1,26 @@
+{
+  "version": "2.2.0",
+  "summary": {
+    "title": "SQL injection",
+    "owner": "My user",
+    "description": "The data entered by the user is not filtered properly, which allows an attacker to execute arbitrary SQL queries.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 2,
+        "title": "SQL injection",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": []
+      }
+    ],
+    "diagramTop": 3,
+    "reviewer": "My user",
+    "threatTop": 0
+  }
+}
