@@ -16,11 +16,386 @@
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.2.0",
-        "cells": []
+        "cells": [
+          {
+            "position": {
+              "x": 519.9999999999991,
+              "y": 170.00000000000318
+            },
+            "size": {
+              "width": 790,
+              "height": 180
+            },
+            "shape": "trust-boundary-box",
+            "id": "2f52902c-e110-42de-8a99-46951aacc762",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 310,
+              "y": 230
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Злоумышленник"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "158b08b5-fbf1-49bd-a5ae-cbdb953be9d7",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Злоумышленник",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 571,
+              "y": 215
+            },
+            "size": {
+              "width": 100,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "Авторизация"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "5c1fce2a-e576-4e03-b9bd-79ce43b39b70",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Process",
+              "name": "Авторизация",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "1ea6ef48-100a-469e-a31e-633c553aed71",
+                  "title": "SQL-инъекция",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Проверка входных данных должна осуществляться в приложении. Необходимо рассмотреть, как приложение взаимодействует с базой данных. Предпочтительно использовать хранимые процедуры вместо обычного SQL. Важно убедиться, что хранимая процедура проверяет значения, передаваемые ей в качестве параметров.",
+                  "mitigation": "Используйте параметризованные запросы и ORM (Object-Relational Mapping), чтобы защитить ваши базы данных от внедрения вредоносного SQL-кода. Это помогает предотвратить выполнение произвольных запросов и защищает от атак, так как все параметры передаются отдельно от самого SQL-кода. Также важно регулярно проводить аудит кода для выявления уязвимостей и использовать минимально необходимые права доступа для учетной записи базы данных.\nD (Damage): 9\nR (Reproducibility): 8\nE (Exploitability): 7\nA (Affected Users): 9\nD (Discoverability): 6",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "40"
+                },
+                {
+                  "id": "1011c656-d499-440b-adf2-46e09d35c29f",
+                  "title": "Фишинг",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Атака с использованием фишинговых писем или поддельных веб-страниц, которые выдают себя за настоящие сервисы, направлена на то, чтобы обманом заставить пользователей раскрыть свои учетные данные (логины и пароли). Это позволяет злоумышленникам получить доступ к системе от имени жертвы.",
+                  "mitigation": "Внедрите двухфакторную аутентификацию (2FA) для повышения безопасности учетных записей, требуя дополнительный подтверждающий фактор при входе. Регулярно проводите тренинги по кибербезопасности для сотрудников, чтобы они могли эффективно распознавать фишинговые атаки, включая подозрительные ссылки и электронные письма. Применяйте решения для фильтрации и маркировки фишинговых сообщений, чтобы снизить риск их открытия.\nD (Damage): 8\nR (Reproducibility): 9\nE (Exploitability): 9\nA (Affected Users): 6\nD (Discoverability): 5",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "37"
+                },
+                {
+                  "id": "68dd772e-10c0-4d03-9ad4-d24a6a458285",
+                  "title": "Атака метода перебора SSH",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Атака метода перебора SSH (brute force attack) — это метод несанкционированного доступа к серверу через протокол SSH (Secure Shell). В ходе этой атаки злоумышленник пытается угадать учетные данные пользователя (логин и пароль), отправляя множество комбинаций до тех пор, пока не найдет правильные.",
+                  "mitigation": "Обеспечьте, чтобы пароли были длинными и содержали комбинацию букв, цифр и специальных символов.Настройте систему для блокировки учетной записи после определенного числа неудачных попыток входа. Внедрите двухфакторную аутентификацию для дополнительного уровня защиты.Настройте брандмауэр для ограничения доступа к порту SSH только с определенных IP-адресов.\nD (Damage): 7\nR (Reproducibility): 7\nE (Exploitability): 7\nA (Affected Users): 7\nD (Discoverability): 6\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "34"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 852,
+              "y": 230
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Веб-сервер"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "faf303c5-2f03-4fda-a283-0caaa6610dae",
+            "zIndex": 3,
+            "data": {
+              "type": "tm.Store",
+              "name": "Веб-сервер",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "80f85b40-4a3e-4607-814d-0819b9d88141",
+                  "title": "CSRF (Cross-Site Request Forgery)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "Cross-Site Request Forgery (CSRF) — это тип атаки, при которой злоумышленник принуждает пользователя, находящегося в состоянии аутентификации на определённом сайте, выполнить нежелательное действие без его согласия. Обычно это происходит, когда жертва посещает вредоносный ресурс, который отправляет запрос на сайт, где она уже вошла в систему, используя её активную сессию.",
+                  "mitigation": "Используйте уникальные CSRF-токены для всех форм и важных запросов, чтобы защититься от атак подмены запросов. Кроме того, проверяйте заголовок Referer и ограничивайте HTTP-методы (например, используйте только POST) для критических операций, чтобы усилить безопасность вашего приложения.\nD (Damage): 8\nR (Reproducibility): 8\nE (Exploitability): 8\nA (Affected Users): 9\nD (Discoverability): 6",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "39"
+                },
+                {
+                  "id": "486fe2ed-5d6f-41b9-be6b-7c66c459a43d",
+                  "title": "XSS (межсайтовый скриптинг)",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Одна из разновидностей атак на веб-системы, которая подразумевает внедрение вредоносного кода на определенную страницу сайта и взаимодействие этого кода с удаленным сервером злоумышленников при открытии страницы пользователем.",
+                  "mitigation": "Экранируйте данные на стороне сервера и клиента, чтобы избежать выполнения произвольного JavaScript-кода. Применяйте Content Security Policy (CSP) для ограничения источников, из которых можно загружать скрипты, что поможет защитить пользователей от выполнения вредоносного кода. Регулярно проводите проверки и тестирования на уязвимости XSS, чтобы выявлять и устранять возможные проблемы.\nD (Damage): 7\nR (Reproducibility): 8\nE (Exploitability): 6\nA (Affected Users): 6\nD (Discoverability): 6",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "33"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 1128,
+              "y": 230
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "База данных"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "b305316e-0da0-45c1-8701-dc6b754946c5",
+            "zIndex": 4,
+            "data": {
+              "type": "tm.Store",
+              "name": "База данных",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "6be35d76-768d-45e2-8133-519d7f94711d",
+            "source": {
+              "cell": "5c1fce2a-e576-4e03-b9bd-79ce43b39b70"
+            },
+            "target": {
+              "cell": "faf303c5-2f03-4fda-a283-0caaa6610dae"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "ef6446d1-af8b-4e96-abe3-2499be74cdd1",
+            "source": {
+              "cell": "158b08b5-fbf1-49bd-a5ae-cbdb953be9d7"
+            },
+            "target": {
+              "cell": "5c1fce2a-e576-4e03-b9bd-79ce43b39b70"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "6d0f9913-c767-4892-8e55-de162fd25bc2",
+            "source": {
+              "cell": "faf303c5-2f03-4fda-a283-0caaa6610dae"
+            },
+            "target": {
+              "cell": "b305316e-0da0-45c1-8701-dc6b754946c5"
+            }
+          }
+        ]
       }
     ],
     "diagramTop": 3,
     "reviewer": "My user",
-    "threatTop": 0
+    "threatTop": 10
   }
 }
